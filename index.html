@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>초성퀴즈</title>
+    <script src="./quiz.js" defer></script>
+    <style>
+        .dialog {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 500px;
+            height: auto;
+            border: 1px double black;
+            border-radius: 5px;
+            margin: auto;
+        }
+
+        .count_container {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .frame {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            display: inline-block;
+            margin-left: 5px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .summit {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dialog">
+        <div class="count_container">
+            <span>남은 횟수</span>
+            <span class="count">5</span>
+        </div>
+        <div class="quiz_container"></div>
+        <div class="answer_container"></div>
+    </div>
+</body>
+
+</html>
