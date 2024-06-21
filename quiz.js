@@ -1,5 +1,19 @@
-let word = "quest";
-let left_count = 5;
+// 단어
+const word_list = [
+    'hello', 'love', 'friend', 'family', 'happy', 'book', 'school', 'food', 'work', 'beautiful'
+]
+
+// 랜덤 인덱스 생성
+const randomIndex = Math.floor(Math.random() * word_list.length);
+
+// 랜덤 단어 선택
+const word = word_list[randomIndex];
+const word_length = word.length;
+
+// 남은 횟수
+let left_count = word_length;
+
+// 성공 유무
 let isSucceed = false;
 
 main();
@@ -75,11 +89,12 @@ function createAnswerFrame(count) {
         }
 
         // 남은 횟수가 0 이상일 때
-        if (left_count > 0) {
+        if (!isSucceed && left_count > 0) {
             checkAnswer();
-            if (!isSucceed) {
-                createQuizFrame(word.length);
-            }
+        }
+
+        if (!isSucceed && left_count > 0) {
+            createQuizFrame(word.length);
         }
     })
 }
@@ -89,7 +104,7 @@ function createAnswerFrame(count) {
  */
 function checkAnswer() {
     const quiz_container = document.querySelector('.quiz_container').children;;
-    const quiz_frames = quiz_container[5 - left_count].querySelectorAll('.frame');
+    const quiz_frames = quiz_container[word_length + 1 - left_count].querySelectorAll('.frame');
     const answer_container = document.querySelector('.answer_container');
     const answer_frames = answer_container.querySelectorAll('.frame');
 
@@ -103,11 +118,10 @@ function checkAnswer() {
             quiz_frames[i].classList.add('green');
             quiz_frames[i].classList.remove('yellow');
         }
-
         quiz_frames[i].textContent = answer_frames[i].value;
     }
 
-    if (quiz_container[5 - left_count].querySelectorAll('.green').length === word.length) {
+    if (quiz_container[word_length + 1 - left_count].querySelectorAll('.green').length === word.length) {
         isSucceed = true;
         alert('정답입니다!!!');
     }

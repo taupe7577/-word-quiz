@@ -10,7 +10,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            width: 500px;
+            width: 400px;
+            min-width: 300px;
             height: auto;
             border: 1px double black;
             border-radius: 5px;
@@ -18,9 +19,7 @@
         }
 
         .count_container {
-            position: absolute;
-            right: 10px;
-            top: 10px;
+            text-align: center;
         }
 
         .frame {
@@ -53,11 +52,12 @@
 
 <body>
     <div class="dialog">
-        <div class="count_container">
-            <span>남은 횟수</span>
-            <span class="count">5</span>
+        <div class="quiz_container">
+            <div class="count_container">
+                <span>남은 횟수</span>
+                <span class="count">5</span>
+            </div>
         </div>
-        <div class="quiz_container"></div>
         <div class="answer_container"></div>
     </div>
 </body>
